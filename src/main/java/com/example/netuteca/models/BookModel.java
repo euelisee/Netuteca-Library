@@ -3,19 +3,22 @@ package com.example.netuteca.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Table(name = "tb_books")
 @Entity
 public class BookModel {
     @Id
     @GeneratedValue(generator = "tb_books_sequence", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "tb_books_sequence", allocationSize = 1)
+
+    private List<LoanModel> loanModels;
     private Long id;
     private String title;
     private String author;
     private String genre;
     private Integer height;
     private String publisher;
-
 
     // Getters e setters
     public Long getId() {

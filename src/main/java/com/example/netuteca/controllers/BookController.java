@@ -1,11 +1,11 @@
 package com.example.netuteca.controllers;
+
 import com.example.netuteca.models.BookModel;
 import com.example.netuteca.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.List;
 
@@ -21,6 +21,7 @@ public class BookController {
     public List<BookModel> getAll() {
         return service.getAll();
     }
+
     @GetMapping("books/{id}")
     public ResponseEntity<Object> getOne(@PathVariable Long id) {
         var book1 = service.findById(id);
@@ -29,11 +30,13 @@ public class BookController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(book1.get());
     }
+
     @PostMapping("/books")
     public ResponseEntity<Object> createBook(@RequestBody BookModel book) {
         var newBook = service.save(book);
         return ResponseEntity.status(HttpStatus.CREATED).body(book);
     }
+
     @PutMapping("books/{id}")
     public ResponseEntity<BookModel> updateBook(@PathVariable Long id, @RequestBody BookModel bookModel) {
         return service.findById(id)

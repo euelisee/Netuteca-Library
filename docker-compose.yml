@@ -10,3 +10,4 @@ services:
       POSTGRES_PASSWORD: pipoca123
     volumes:
       - ./db/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/init-db-readers.sql:/docker-entrypoint-initdb.d/init-readers.sql
