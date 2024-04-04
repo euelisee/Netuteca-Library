@@ -11,11 +11,17 @@ public class ReaderModel {
     @GeneratedValue(generator = "tb_readers_sequence", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "tb_readers_sequence", allocationSize = 1)
     private Long id;
+    @Column(name="name")
     private String name;
+    @Column(name = "contact")
     private String contact;
+    @Column(name = "email")
     private String email;
+    @Column(name = "cpf")
     private String cpf;
+    @OneToMany(mappedBy = "readerModel")
     private List<LoanModel> loanModels;
+
     public Long getId() {
         return id;
     }

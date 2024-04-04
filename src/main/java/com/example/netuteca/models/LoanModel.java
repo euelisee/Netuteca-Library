@@ -3,17 +3,14 @@ package com.example.netuteca.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Date;
 
-@Table(name = "tb_Loans")
+@Table(name = "tb_loans")
 @Entity
 public class LoanModel {
     @Id
-    @GeneratedValue(generator = "tb_loan_sequence", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "tb_loan_sequence", allocationSize = 1)
-
+    @GeneratedValue(generator = "tb_loans_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "tb_loans_sequence", allocationSize = 1)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne
@@ -25,14 +22,18 @@ public class LoanModel {
     private BookModel bookModel;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "loan_date")
     private LocalDate loanDate;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "estimated_return_date")
     private LocalDate estimatedReturnDate;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "return_date")
     private LocalDate returnDate;
 
+    @Column(name = "fine_value")
     private Double fineValue;
 
     public Long getId() {
