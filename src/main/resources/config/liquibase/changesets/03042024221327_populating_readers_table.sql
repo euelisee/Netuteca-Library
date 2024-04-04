@@ -1,17 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.tb_readers (
-	Id INT NOT NULL,
-    Name TEXT,
-    Contact TEXT,
-    Email TEXT,
-    Cpf TEXT,
-    PRIMARY KEY (Id)
-);
-
-CREATE SEQUENCE IF NOT EXISTS tb_readers_sequence
-INCREMENT BY 1
-START WITH 1
-OWNED BY public.tb_readers.Id;
-
+--changeset elise:4
 INSERT INTO tb_readers (Id, Name, Contact, Email, Cpf) VALUES  (nextval('tb_readers_sequence'), 'João Silva', '(11) 98765-4321', 'joao.silva@example.com', '123.456.789-00');
 INSERT INTO tb_readers (Id, Name, Contact, Email, Cpf) VALUES  (nextval('tb_readers_sequence'), 'Maria Santos', '(21) 12345-6789', 'maria.santos@example.com', '987.654.321-00');
 INSERT INTO tb_readers (Id, Name, Contact, Email, Cpf) VALUES  (nextval('tb_readers_sequence'), 'Pedro Oliveira', '(31) 55555-5555', 'pedro.oliveira@example.com', '111.222.333-44');
