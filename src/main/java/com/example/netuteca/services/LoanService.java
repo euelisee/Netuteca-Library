@@ -3,11 +3,13 @@ package com.example.netuteca.services;
 import com.example.netuteca.models.LoanModel;
 import com.example.netuteca.repositories.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class LoanService {
     @Autowired
     private LoanRepository loanRepository;
@@ -19,9 +21,13 @@ public class LoanService {
     public Optional<LoanModel> getLoanById(Long id) {
         return loanRepository.findById(id);
     }
-
     public LoanModel saveLoan(LoanModel loanModel) {
-        return loanRepository.save(loanModel);
+        LoanModel save = loanRepository.save(loanModel);
+        var variavel = loanRepository.findById(save.getId());
+        if (variavel.isPresent()){
+            return  variavel.get();
+        }
+        return null;
     }
 
     public void deleteLoan(Long id) {
