@@ -1,13 +1,13 @@
 package com.example.netuteca.services;
 
-import com.example.netuteca.models.LoanModel;
-import com.example.netuteca.repositories.LoanRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
+import com.example.netuteca.models.LoanModel;
+import com.example.netuteca.repositories.LoanRepository;
 
 @Service
 public class LoanService {

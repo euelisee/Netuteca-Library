@@ -1,10 +1,7 @@
 package com.example.netuteca.repositories;
 
-import com.example.netuteca.models.LoanModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import com.example.netuteca.models.LoanModel;
 
-public interface LoanRepository extends JpaRepository<LoanModel, Long> {
-
-}
+public interface LoanRepository extends JpaRepository<LoanModel, Long> {}

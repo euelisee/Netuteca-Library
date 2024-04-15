@@ -1,9 +1,12 @@
 package com.example.netuteca.models;
 
-
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Table(name = "tb_books")
 @Entity
@@ -13,9 +16,6 @@ public class BookModel {
     @SequenceGenerator(name = "tb_books_sequence", allocationSize = 1)
     @Column(name = "id")
     private Long id;
-    @OneToMany(mappedBy = "bookModel")
-    private List<LoanModel> loanModels;
-
     @Column(name = "title")
     private String title;
     @Column(name = "author")
