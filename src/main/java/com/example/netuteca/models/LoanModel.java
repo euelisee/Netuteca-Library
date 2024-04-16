@@ -1,15 +1,13 @@
 package com.example.netuteca.models;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -18,10 +16,8 @@ import jakarta.persistence.TemporalType;
 @Entity
 public class LoanModel {
     @Id
-    @GeneratedValue(generator = "tb_loans_sequence", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "tb_loans_sequence", allocationSize = 1)
     @Column(name = "id")
-    private Long id;
+    private UUID id = UUID.randomUUID();
 
     @ManyToOne
     @JoinColumn(name = "reader_id")
@@ -46,11 +42,11 @@ public class LoanModel {
     @Column(name = "fine_value")
     private Double fineValue;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -1,21 +1,18 @@
 package com.example.netuteca.models;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Table(name = "tb_books")
 @Entity
 public class BookModel {
     @Id
-    @GeneratedValue(generator = "tb_books_sequence", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "tb_books_sequence", allocationSize = 1)
     @Column(name = "id")
-    private Long id;
+    private UUID id = UUID.randomUUID();
     @Column(name = "title")
     private String title;
     @Column(name = "author")
@@ -28,11 +25,11 @@ public class BookModel {
     private String publisher;
 
     // Getters e setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
