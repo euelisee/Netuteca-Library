@@ -1,8 +1,8 @@
 --changeset elise:03042024221227_creating_readers_table
 CREATE TABLE IF NOT EXISTS tb_loans (
-    id SERIAL PRIMARY KEY,
-    reader_id BIGINT,
-    book_id BIGINT,
+    id INT PRIMARY KEY,
+    reader_id INT,
+    book_id INT,
     loan_date DATE,
     estimated_return_date DATE,
     return_date DATE,

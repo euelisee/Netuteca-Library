@@ -22,12 +22,7 @@ public class LoanService {
         return loanRepository.findById(id);
     }
     public LoanModel saveLoan(LoanModel loanModel) {
-        LoanModel save = loanRepository.save(loanModel);
-        var variavel = loanRepository.findById(save.getId());
-        if (variavel.isPresent()){
-            return  variavel.get();
-        }
-        return null;
+        return loanRepository.save(loanModel);
     }
 
     public void deleteLoan(Long id) {
