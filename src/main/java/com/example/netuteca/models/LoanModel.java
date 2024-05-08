@@ -3,6 +3,7 @@ package com.example.netuteca.models;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -23,7 +24,7 @@ public class LoanModel {
     @JoinColumn(name = "reader_id")
     private ReaderModel readerModel;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     private BookModel bookModel;
 
