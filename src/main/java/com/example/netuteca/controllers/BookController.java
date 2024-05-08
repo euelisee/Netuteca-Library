@@ -1,6 +1,7 @@
 package com.example.netuteca.controllers;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +33,7 @@ public class BookController {
     }
 
     @GetMapping("books/{id}")
-    public ResponseEntity<Object> getOne(@PathVariable Long id) {
+    public ResponseEntity<Object> getOne(@PathVariable UUID id) {
         var book1 = service.findById(id);
         if (book1.isEmpty()) { //Empty--vazia - quando ela aponta para um objeto que é vazio
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book not found!");
@@ -47,7 +48,7 @@ public class BookController {
     }
 
     @PutMapping("books/{id}")
-    public ResponseEntity<BookModel> updateBook(@PathVariable Long id, @RequestBody BookModel bookModel) {
+    public ResponseEntity<BookModel> updateBook(@PathVariable UUID id, @RequestBody BookModel bookModel) {
         return service.findById(id)
                 .map(book2 -> {
                     book2.setTitle(bookModel.getTitle());
@@ -63,7 +64,7 @@ public class BookController {
     }
 
     @DeleteMapping("books/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBook(@PathVariable UUID id) {
         service.remove(id);
         return ResponseEntity.ok().<Void>build(); //estou retornando o statusCode 200 para evitar informaçoes de seguranca serem vazadas.
     }
